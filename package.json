@@ -5,23 +5,20 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
-    "develop": "\"cd server && npm run watch\" \"cd client && npm run dev\"",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
     "install": "cd server && npm i && cd ../client && npm i",
-    "build": "cd server && npm run build && cd client && npm run build",
+    "build": "concurrently \"cd server && npm run build\" \"cd client && npm run build\"",
     "render-build": "npm install && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^18.19.74",
     "concurrently": "^8.2.0"
   },
   "dependencies": {
-    "@apollo/client": "^3.12.6",
-    "bcrypt": "^5.1.1",
-    "express": "^4.21.2",
-    "graphql-tag": "^2.12.6",
-    "mongoose": "^8.9.5"
+    "@apollo/client": "^3.12.6"
   }
 }
+
+

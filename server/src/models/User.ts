@@ -1,4 +1,4 @@
-import { Schema, type Document } from 'mongoose';
+import { Schema, type Document, model } from 'mongoose';
 import bcrypt from 'bcrypt';
 
 // import schema from Book.js
@@ -6,7 +6,6 @@ import bookSchema from './Book.js';
 import type { BookDocument } from './Book.js';
 
 export interface UserDocument extends Document {
-  id: string;
   username: string;
   email: string;
   password: string;
@@ -63,4 +62,6 @@ userSchema.virtual('bookCount').get(function () {
   return this.savedBooks.length;
 });
 
-export default userSchema;
+const User = model<UserDocument>('User', userSchema)
+
+export default User;
