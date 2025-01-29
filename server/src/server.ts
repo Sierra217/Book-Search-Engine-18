@@ -1,7 +1,7 @@
 import express from 'express';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
-import { typeDefs, resolvers } from './Schema'
+import { typeDefs, resolvers } from './schema'
 import path from 'node:path';
 import db from './config/connection';
 import routes from './routes/index';
