@@ -1,3 +1,4 @@
+import { saveBook } from "../controllers/user-controller.js";
 import { Book, User } from "../models/index.js";
 
 interface AddBookArgs {
@@ -31,14 +32,14 @@ const resolvers = {
     },
 
     Mutation: {
-        addBook: async (_parent: undefined, args: AddBookArgs) => {
+        saveBook: async (_parent: undefined, args: AddBookArgs) => {
             const newBook = new Book({
                 title: args.title,
                 author: args.author,
             })
             return await newBook.save();
         },
-        AddUser: async (_parent: undefined, args: AddUserArgs) => {
+        addUser: async (_parent: undefined, args: AddUserArgs) => {
             const newUser = new User({
                 username: args.username,
                 email: args.email,

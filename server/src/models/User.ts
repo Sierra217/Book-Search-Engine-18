@@ -1,15 +1,13 @@
-import { Schema, type Document, model } from 'mongoose';
+import { Schema, type Document, model, Types} from 'mongoose';
 import bcrypt from 'bcrypt';
-
+import Book from './Book';
 // import schema from Book.js
-import bookSchema from './Book.js';
-import type { BookDocument } from './Book.js';
 
 export interface UserDocument extends Document {
   username: string;
   email: string;
   password: string;
-  savedBooks: BookDocument[];
+  savedBooks: Types.ObjectId[];
   isCorrectPassword(password: string): Promise<boolean>;
   bookCount: number;
 }
@@ -32,7 +30,7 @@ const userSchema = new Schema<UserDocument>(
       required: true,
     },
     // set savedBooks to be an array of data that adheres to the bookSchema
-    savedBooks: [bookSchema],
+    savedBooks: [{ type: Schema.Types.ObjectId, ref: 'Book' }],
   },
   // set this to use virtual below
   {
