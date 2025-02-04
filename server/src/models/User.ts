@@ -1,6 +1,5 @@
 import { Schema, type Document, model, Types} from 'mongoose';
 import bcrypt from 'bcrypt';
-import Book from './Book';
 // import schema from Book.js
 
 export interface UserDocument extends Document {
