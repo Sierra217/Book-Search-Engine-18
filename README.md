@@ -10,7 +10,12 @@ SO THAT I can keep a list of books to purchase
 Fully functioning Google Books API search engine built with a RESTful API, and refactor it to be a GraphQL API built with Apollo Server
 
 ## Table of Contents
--Installation -Usage -License -Contributors -Tests -Questions
+  -[Installation](#Installation)
+  -[Usage](#Usage)
+  -[License](#License)
+  -[Contributors](#Contributors)
+  -[Tests](#Tests)
+  -[Questions](#Questions)
 
 ## Installation:
 npm i
