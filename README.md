@@ -1,27 +1,31 @@
-# Book Search Engine
 
-## User Story
+# Book Search Engine License: MIT (https://opensource.org/licenses/MIT)
+
+
 AS AN avid reader
 I WANT to search for new books to read
 SO THAT I can keep a list of books to purchase
- 
-## Description
-fully functioning Google Books API search engine built with a RESTful API, and refactor it to be a GraphQL API built with Apollo Server
 
-## Installation
+## Description:
+Fully functioning Google Books API search engine built with a RESTful API, and refactor it to be a GraphQL API built with Apollo Server
+
+## Table of Contents
+-Installation -Usage -License -Contributors -Tests -Questions
+
+## Installation:
 npm i
 
 ## Usage
-Use this book search engine to search for books
+Search for new books and add them to your list.
 
 ## License
-  MIT
-  
+License: MIT (https://opensource.org/licenses/MIT)
+
 ## Contributors
-  xpert learning assistant, Teacher and TA's
-  
+xpert learning assistant, Teacher and TA's
+
 ## Tests
-  Run npm run build && node dist/server.js in command terminal
-  
-## Questions
-With any questions contact me at git.com/example or examplegit@mail.com
+deployed application on render
+
+## Question
+For any question contact me at Email@email.com https://github.com/Sierra217
