@@ -29,6 +29,9 @@ const startApolloServer = async () => {
   if (process.env.NODE_ENV === 'production') {
     app.use(express.static('../../client/build'));
 
+    app.get('*', (_req, res) => {
+      res.sendFile('../../client/dist/index.html');
+    });
   }
 
   app.use(routes);
