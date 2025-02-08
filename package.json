@@ -17,8 +17,7 @@
     "concurrently": "^8.2.0"
   },
   "dependencies": {
-    "@apollo/client": "^3.12.6"
+    "@apollo/client": "^3.12.6",
+    "jsonwebtoken": "^9.0.2"
   }
 }
-
-

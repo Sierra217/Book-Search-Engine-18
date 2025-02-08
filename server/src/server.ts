@@ -6,6 +6,7 @@ import path from 'node:path';
 import db from './config/connection.js';
 import routes from './routes/index.js';
 import { authenticateToken } from './services/auth.js';
+import jwt from 'jsonwebtoken';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,9 +22,27 @@ const startApolloServer = async () => {
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
 
-  app.use(authenticateToken);
+ 
 
-  app.use('/graphql', expressMiddleware(server));
+  app.use('/graphql', expressMiddleware(server, {
+    context: async ({ req, res }) => {
+      const authHeader = req.headers.authorization;
+      let user = null;
+      if (authHeader) {
+        try {
+          const token = authHeader.split(' ')[1];
+          if (process.env.JWT_SECRET_KEY) {
+            user = jwt.verify(token, process.env.JWT_SECRET_KEY);
+          } else {
+            throw new Error('JWT_SECRET_KEY is not defined');
+          }
+        } catch (error) {
+          console.error('Error parsing token:', error);
+        }
+      }
+      return { user };
+    }
+  }));
   
   // if we're in production, serve client/build as static assets
   if (process.env.NODE_ENV === 'production') {
