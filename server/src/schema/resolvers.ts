@@ -1,4 +1,5 @@
 import { Book, User } from "../models/index.js";
+import { signToken } from "../services/auth.js";
 
 interface AddBookArgs {
     title: string;
@@ -44,7 +45,8 @@ const resolvers = {
                 email: args.email,
                 password: args.password
             })
-            return await newUser.save();
+            const token = signToken(newUser.username, newUser.email, newUser._id)
+            return { token, user: newUser};
         }
     }
 }

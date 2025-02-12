@@ -28,9 +28,8 @@ class AuthService {
         return true;
       } 
       
-      return false;
     } catch (err) {
-      return false;
+      return true;
     }
   }
 
@@ -42,14 +41,14 @@ class AuthService {
   login(idToken: string) {
     // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+    window.location.replace('/');
   }
 
   logout() {
     // Clear user token and profile data from localStorage
     localStorage.removeItem('id_token');
     // this will reload the page and reset the state of the application
-    window.location.assign('/');
+    window.location.replace('/');
   }
 }
 
